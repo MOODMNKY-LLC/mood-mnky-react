@@ -9,7 +9,7 @@ const AuthComponent = () => {
     <div className="auth-container">
       <div className="auth">
         <img src="https://cdn.shopify.com/s/files/1/0693/4328/1426/files/MOOD_MNKY_CLASSIC_FACE_WHITE_SVG.svg" alt="MOOD MNKY Logo" className="auth-logo" />
-        <h1>MOOD | MNKY</h1>
+        <h1>MOOD MNKY</h1>
         <h3>Scents the mood...</h3>
         <Auth
           supabaseClient={supabase}
