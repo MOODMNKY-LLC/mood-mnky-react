@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { FullPageChat } from "flowise-embed-react";
 import { supabase } from './supabaseClient'; // Ensure this import points to your Supabase client
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import './custom.css'; // Import the custom CSS file
 
 const Chat = () => {
     const chatContentRef = useRef(null);
@@ -34,8 +35,8 @@ const Chat = () => {
             top: '50%', 
             left: '50%', 
             transform: 'translate(-50%, -50%)', 
-            height: '700px', // Fixed height
-            width: '400px', // Fixed width
+            height: '95%', // Fixed height
+            width: '95%', // Fixed width
             backgroundColor: '#101010', 
             borderRadius: '10px',
             boxShadow: '0 4px 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.5)',
@@ -71,40 +72,42 @@ const Chat = () => {
                     Logout
                 </button>
             </div>
-            <FullPageChat
-                chatflowid="fe622267-c9d4-4c6e-af41-9cc49ebb0941"
-                apiHost="https://mood-flowise.moodmnky.com"
-                theme={{
-                    chatWindow: {
-                        welcomeMessage: "Hello! This is custom welcome message",
-                        backgroundColor: "#101010", // Dark background
-                        height: '100%', // Full height of the container
-                        width: '100%', // Full width of the container
-                        fontSize: 16,
-                        poweredByTextColor: "#ffffff", // White text
-                        botMessage: {
-                            backgroundColor: "#2a2a2a", // Slightly lighter dark background
-                            textColor: "#ffffff", // White text
-                            showAvatar: true,
-                            avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/parroticon.png",
-                        },
-                        userMessage: {
-                            backgroundColor: "#ffffff", // White background
-                            textColor: "#303235", // Dark gray text
-                            showAvatar: true,
-                            avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
-                        },
-                        textInput: {
-                            placeholder: "Type your question",
-                            backgroundColor: "#222222", // Dark input background
-                            textColor: "#ffffff", // White text
-                            placeholderTextColor: "#666666", // Gray
-                            sendButtonColor: "#ffffff", // White
+            <div className="fullPageChat">
+                <FullPageChat
+                    chatflowid="fe622267-c9d4-4c6e-af41-9cc49ebb0941"
+                    apiHost="https://mood-flowise.moodmnky.com"
+                    theme={{
+                        chatWindow: {
+                            welcomeMessage: "Welcome to MOOD MNKY! How may I be of service?",
+                            backgroundColor: "#101010", // Dark background
+                            height: '100%', // Full height of the container
+                            width: '100%', // Full width of the container
+                            fontSize: 16,
+                            poweredByTextColor: "#101010", // White text
+                            botMessage: {
+                                backgroundColor: "#2a2a2a", // Slightly lighter dark background
+                                textColor: "#ffffff", // White text
+                                showAvatar: true,
+                                avatarSrc: "https://cdn.shopify.com/s/files/1/0693/4328/1426/files/MOOD_MNKY_SVG.svg",
+                            },
+                            userMessage: {
+                                backgroundColor: "#ffffff", // White background
+                                textColor: "#303235", // Dark gray text
+                                showAvatar: true,
+                                avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
+                            },
+                            textInput: {
+                                placeholder: "Type your question",
+                                backgroundColor: "#222222", // Dark input background
+                                textColor: "#ffffff", // White text
+                                placeholderTextColor: "#666666", // Gray
+                                sendButtonColor: "#ffffff", // White
+                            }
                         }
-                    }
-                }}
-                contentRef={chatContentRef} // Add ref for the chat content
-            />
+                    }}
+                    contentRef={chatContentRef} // Add ref for the chat content
+                />
+            </div>
         </div>
     );
 };
