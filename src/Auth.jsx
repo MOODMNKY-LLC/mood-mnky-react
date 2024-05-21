@@ -12,7 +12,7 @@ const AuthComponent = () => {
         <h1>MOOD MNKY</h1>
         <Auth
           supabaseClient={supabase}
-          providers={['google', 'facebook', 'twitter']}
+          providers={['discord', 'google', 'notion']}
           appearance={{
             theme: ThemeSupa,
             variables: {
