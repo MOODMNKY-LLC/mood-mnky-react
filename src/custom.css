@@ -156,3 +156,22 @@ body::after {
     text-shadow: 4px 4px 16px rgba(255, 255, 255, 0.9);
   }
 }
+
+/* Custom styles for chat component */
+.fullPageChat {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.fullPageChat .chat-content {
+  flex: 1;
+  overflow-y: auto; /* Ensure chat content is scrollable */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.fullPageChat .chat-input {
+  flex-shrink: 0; /* Ensure the input field stays at the bottom */
+}
