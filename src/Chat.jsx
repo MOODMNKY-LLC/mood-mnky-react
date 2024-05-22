@@ -1,11 +1,20 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { supabase } from './supabaseClient';
 import '@/custom.css'; // Ensure to import your custom CSS
 
 const Chat = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="chat-container">
       <div className="chat-header">
-        {/* <h1>Chat with Flowise Bot</h1> */}
+        <button className="button block" onClick={() => navigate('/account')}>
+          Account
+        </button>
+        <button className="button block" onClick={() => supabase.auth.signOut()}>
+          Logout
+        </button>
       </div>
       <div className="chat-content">
         <iframe 
@@ -13,7 +22,7 @@ const Chat = () => {
           width="100%" 
           height="100%" 
           style={{ border: 'none' }} 
-          title="Flowise Chatbot">
+          title="MOOD MNKY">
         </iframe>
       </div>
     </div>

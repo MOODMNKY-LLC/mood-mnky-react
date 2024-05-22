@@ -162,7 +162,7 @@ body::after {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   background-color: #101010;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.5);
@@ -171,7 +171,7 @@ body::after {
 
 .chat-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding: 10px;
   background-color: #333;
   color: #fff;
@@ -179,8 +179,24 @@ body::after {
 
 .chat-content {
   flex: 1;
-  padding: 10px;
   overflow-y: auto;
   color: #fff;
   background-color: #101010;
+}
+
+.button {
+  background: #333; /* Dark button background */
+  color: #ffffff; /* White text color */
+  border: none;
+  border-radius: 10px; /* Smooth rounded corners */
+  padding: 10px 20px; /* Padding for a thicker button */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4); /* Soft white glow effect */
+}
+
+.button:hover {
+  background: #444; /* Slightly lighter on hover */
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.6); /* Stronger glow on hover */
 }
