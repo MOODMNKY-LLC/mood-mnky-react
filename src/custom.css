@@ -157,21 +157,30 @@ body::after {
   }
 }
 
-/* Custom styles for chat component */
-.fullPageChat {
+/* custom.css */
+.chat-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
   width: 100%;
+  background-color: #101010;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
 }
 
-.fullPageChat .chat-content {
-  flex: 1;
-  overflow-y: auto; /* Ensure chat content is scrollable */
+.chat-header {
+  display: flex;
+  justify-content: center;
   padding: 10px;
-  box-sizing: border-box;
+  background-color: #333;
+  color: #fff;
 }
 
-.fullPageChat .chat-input {
-  flex-shrink: 0; /* Ensure the input field stays at the bottom */
+.chat-content {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  color: #fff;
+  background-color: #101010;
 }
