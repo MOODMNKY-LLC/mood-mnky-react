@@ -27,7 +27,7 @@ const Chat = () => {
       </div>
       <div className="chat-content">
         <iframe 
-          src="https://mood-flowise.moodmnky.com/chatbot/fe622267-c9d4-4c6e-af41-9cc49ebb0941" 
+          src="https://girth-flowise.moodmnky.com/chatbot/c1aa52e8-715d-466c-9c49-5d17ebd0feca" 
           width="100%" 
           height="100%" 
           style={{ border: 'none' }} 
