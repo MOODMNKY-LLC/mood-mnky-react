@@ -1,50 +1,52 @@
-import { useState, useEffect } from 'react'
-import { supabase } from './supabaseClient'
-import Avatar from './Avatar'  // Import the new component
+import { useState, useEffect } from 'react';
+import { supabase } from './supabaseClient';
+import Avatar from './Avatar';  // Import the Avatar component
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 export default function Account({ session }) {
-  const [loading, setLoading] = useState(true)
-  const [username, setUsername] = useState(null)
-  const [website, setWebsite] = useState(null)
-  const [avatar_url, setAvatarUrl] = useState(null)
+  const [loading, setLoading] = useState(true);
+  const [username, setUsername] = useState(null);
+  const [website, setWebsite] = useState(null);
+  const [avatar_url, setAvatarUrl] = useState(null);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
-    let ignore = false
+    let ignore = false;
     async function getProfile() {
-      setLoading(true)
-      const { user } = session
+      setLoading(true);
+      const { user } = session;
 
       const { data, error } = await supabase
         .from('profiles')
         .select(`username, website, avatar_url`)
         .eq('id', user.id)
-        .single()
+        .single();
 
       if (!ignore) {
         if (error) {
-          console.warn(error)
+          console.warn(error);
         } else if (data) {
-          setUsername(data.username)
-          setWebsite(data.website)
-          setAvatarUrl(data.avatar_url)
+          setUsername(data.username);
+          setWebsite(data.website);
+          setAvatarUrl(data.avatar_url);
         }
       }
 
-      setLoading(false)
+      setLoading(false);
     }
 
-    getProfile()
+    getProfile();
 
     return () => {
-      ignore = true
-    }
-  }, [session])
+      ignore = true;
+    };
+  }, [session]);
 
   async function updateProfile(event, avatarUrl) {
-    event.preventDefault()
+    event.preventDefault();
 
-    setLoading(true)
-    const { user } = session
+    setLoading(true);
+    const { user } = session;
 
     const updates = {
       id: user.id,
@@ -52,16 +54,16 @@ export default function Account({ session }) {
       website,
       avatar_url: avatarUrl || avatar_url,  // Use new avatarUrl if provided, otherwise keep the existing one
       updated_at: new Date(),
-    }
+    };
 
-    const { error } = await supabase.from('profiles').upsert(updates)
+    const { error } = await supabase.from('profiles').upsert(updates);
 
     if (error) {
-      alert(error.message)
+      alert(error.message);
     } else if (avatarUrl) {
-      setAvatarUrl(avatarUrl)  // Update the avatar URL state only if a new URL is provided
+      setAvatarUrl(avatarUrl);  // Update the avatar URL state only if a new URL is provided
     }
-    setLoading(false)
+    setLoading(false);
   }
 
   return (
@@ -70,7 +72,7 @@ export default function Account({ session }) {
         url={avatar_url}
         size={150}
         onUpload={(event, url) => {
-          updateProfile(event, url)
+          updateProfile(event, url);
         }}
       />
       <div>
@@ -106,6 +108,12 @@ export default function Account({ session }) {
           Sign Out
         </button>
       </div>
+      <div>
+        {/* Add button to navigate to the chat page */}
+        <button className="button block" type="button" onClick={() => navigate('/chat')}>
+          Go to Chat
+        </button>
+      </div>
     </form>
-  )
+  );
 }
