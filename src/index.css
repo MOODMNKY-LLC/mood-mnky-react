@@ -6,7 +6,7 @@ body {
   --custom-panel-color: #222;
   --custom-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.8);
   --custom-color: #fff;
-  --custom-color-brand: #24b47e;
+  --custom-color-brand: #5e35b1; /* Updated to Deep Purple */
   --custom-color-secondary: #666;
   --custom-border: 1px solid #333;
   --custom-border-radius: 10px;  /* Updated border radius */
@@ -31,7 +31,7 @@ html, body {
 
 /* Add the background image */
 body {
-  background: url('/src/assets/moodmnky_bg.png') no-repeat center center fixed;
+  background: url('/src/assets/girth_bg.png') no-repeat center center fixed; /* Updated background image */
   background-size: cover;
   position: relative;
 }
@@ -281,8 +281,8 @@ button,
 
 button.primary,
 .button.primary {
-  background-color: var(--custom-color-brand);
-  border: 1px solid var(--custom-color-brand);
+  background-color: var(--custom-color-brand); /* Updated to Deep Purple */
+  border: 1px solid var(--custom-color-brand); /* Updated to Deep Purple */
 }
 
 /* Widgets */
