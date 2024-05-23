@@ -6,8 +6,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 export default function Account({ session }) {
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState(null);
-  const [access_token, setAccessToken] = useState(null);
-  const [refresh_token, setRefreshToken] = useState(null);
+  const [website, setWebsite] = useState(null);
   const [avatar_url, setAvatarUrl] = useState(null);
   const navigate = useNavigate(); // Initialize useNavigate
 
@@ -19,7 +18,7 @@ export default function Account({ session }) {
 
       const { data, error } = await supabase
         .from('profiles')
-        .select(`username, access_token, refresh_token, avatar_url`)
+        .select(`username, website, avatar_url`)
         .eq('id', user.id)
         .single();
 
@@ -28,8 +27,7 @@ export default function Account({ session }) {
           console.warn(error);
         } else if (data) {
           setUsername(data.username);
-          setAccessToken(data.access_token);
-          setRefreshToken(data.refresh_token);
+          setWebsite(data.website);
           setAvatarUrl(data.avatar_url);
         }
       }
@@ -53,8 +51,7 @@ export default function Account({ session }) {
     const updates = {
       id: user.id,
       username,
-      access_token,
-      refresh_token,
+      website,
       avatar_url: avatarUrl || avatar_url,  // Use new avatarUrl if provided, otherwise keep the existing one
       updated_at: new Date(),
     };
@@ -93,21 +90,12 @@ export default function Account({ session }) {
         />
       </div>
       <div>
-        <label htmlFor="access_token">Access Token</label>
+        <label htmlFor="website">Website</label>
         <input
-          id="access_token"
-          type="text"
-          value={access_token || ''}
-          onChange={(e) => setAccessToken(e.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="refresh_token">Refresh Token</label>
-        <input
-          id="refresh_token"
-          type="text"
-          value={refresh_token || ''}
-          onChange={(e) => setRefreshToken(e.target.value)}
+          id="website"
+          type="url"
+          value={website || ''}
+          onChange={(e) => setWebsite(e.target.value)}
         />
       </div>
       <div>

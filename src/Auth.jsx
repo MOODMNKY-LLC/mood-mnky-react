@@ -8,30 +8,30 @@ const AuthComponent = () => {
   return (
     <div className="auth-container">
       <div className="auth">
-        <img src="https://cdn.shopify.com/s/files/1/0693/4328/1426/files/ghost_mnky_favicon.svg" alt="MOOD MNKY Logo" className="auth-logo" />
-        <h1>GIRTH the A.I. Guardian!</h1>
-        <h3>Sync your ghost...</h3>
+        <img src="https://cdn.shopify.com/s/files/1/0693/4328/1426/files/MOOD_MNKY_CLASSIC_FACE_WHITE_SVG.svg" alt="MOOD MNKY Logo" className="auth-logo" />
+        <h1>MOOD MNKY</h1>
+        <h3>Scents the mood...</h3>
         <Auth
           supabaseClient={supabase}
-          providers={['discord']}
+          providers={['discord', 'google', 'notion']}
           appearance={{
             theme: ThemeSupa,
             variables: {
               default: {
                 colors: {
-                  brand: '#5e35b1', // Deep Purple for the brand color
-                  brandAccent: '#4c2f9e', // Slightly darker purple for accent
-                  defaultButtonBackground: '#5e35b1', // Deep Purple
-                  defaultButtonBackgroundHover: '#4c2f9e', // Slightly darker purple on hover
-                  defaultButtonBorder: '#5e35b1',
-                  defaultButtonText: '#ffffff', // White text color
-                  inputBorder: '#5e35b1', // Deep purple border on focus
-                  inputBackground: '#333', // Dark input background
+                  brand: '#ffffff', // White for the brand color
+                  brandAccent: '#ffffff',
+                  defaultButtonBackground: '#333',
+                  defaultButtonBackgroundHover: '#444',
+                  defaultButtonBorder: '#444',
+                  defaultButtonText: '#fff',
+                  inputBorder: '#444',
+                  inputBackground: '#222',
                   inputPlaceholder: '#666',
-                  inputText: '#ffffff', // White text color
-                  messageText: '#ffffff', // White text color
-                  text: '#ffffff', // White text color
-                  anchorTextColor: '#5e35b1', // Deep Purple for links
+                  inputText: '#fff',
+                  messageText: '#fff',
+                  text: '#fff',
+                  anchorTextColor: '#ffffff',
                 },
                 fontSizes: {
                   baseBodySize: '16px',
